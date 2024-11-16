@@ -1,4 +1,4 @@
-import rendezVous from "./modeles/rendezVous.js"
+import rendezVous from "../modeles/rendezVous.js"
 
 // Controller - Liste des rendez-vous
 export const rendezVousList = async (req, res) => {

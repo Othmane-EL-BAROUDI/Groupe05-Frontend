@@ -1,19 +1,26 @@
-import express from "express";
-import { 
-    administrateursList, 
-    createAdministrateur, 
-    deleteAdministrateur, 
-    updateAdministrateur, 
-    searchAdministrateur 
-} from "./controllers/administrateurController.js";
 
-const router = express.Router();
+//import {Router} from "express"
+import express from "express";
+
+
+import { 
+    administrateurList, 
+    addAdmin, 
+    deleteAdmin, 
+    updateAdmin, 
+    searchAdministrateur 
+} from "../controller/administrateurCController.js";
+
+
+
+
+const router1 = express.Router();
 
 // Routes for Administrateurs
-router.get("/administrateurs", administrateursList);  // Liste des administrateurs
-router.post("/administrateurs", createAdministrateur);  // Créer un administrateur
-router.delete("/administrateurs/:id", deleteAdministrateur);  // Supprimer un administrateur
-router.put("/administrateurs/:id", updateAdministrateur);  // Modifier un administrateur
-router.get("/administrateurs/:id", searchAdministrateur);  // Recherche d'un administrateur
+router1.get("/administrateurC", administrateurList);  // Liste des administrateurs
+router1.post("/administrateurC", addAdmin);  // Créer un administrateur
+router1.delete("/administrateurC", deleteAdmin);  // Supprimer un administrateur
+router1.put("/administrateurC", updateAdmin);  // Modifier un administrateur
+router1.get("/administrateursC", searchAdministrateur);  // Recherche d'un administrateur
 
-export default router;
+export default router1;

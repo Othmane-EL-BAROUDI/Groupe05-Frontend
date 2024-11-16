@@ -5,7 +5,7 @@ import { DataTypes } from "sequelize"
 
 // Modele pour la table docteur
 const docteur = database.define('docteur', {
-    id_Docteur : { type: DataTypes.UUID, defaultValue:uuidv4, primaryKey: true, allowNull:false},
+    id_Docteur : { type: DataTypes.UUIDV4, primaryKey: true, allowNull:false},
     nom_D: {type:DataTypes.STRING, allowNull:false, unique: false},
     prenom_D: {type:DataTypes.STRING, allowNull:false, unique: false},
     specialite_D: {type:DataTypes.STRING, allowNull:false, unique: false},
@@ -27,3 +27,4 @@ const docteur = database.define('docteur', {
     }}
 })
 
+export default docteur;

@@ -1,13 +1,19 @@
 import express from "express";
-import { docteurList, createDocteur, deleteDocteur, updateDocteur, searchDocteur, searchDocteurByNameOrSpeciality } from "./controllers/docteurController.js";
+//import {Router} from "express"
 
-const router = express.Router();
 
-router.get("/docteurs", docteurList);  // Get all doctors
-router.post("/docteurs", createDocteur);  // Create a new doctor
-router.delete("/docteurs/:id", deleteDocteur);  // Delete a doctor by ID
-router.put("/docteurs/:id", updateDocteur);  // Update a doctor by ID
-router.get("/docteurs/:id", searchDocteur);  // Search for a doctor by ID
-router.get("/docteurs/search", searchDocteurByNameOrSpeciality);  // Search doctors by name or specialty
+import { docteurList, createDocteur, deleteDocteur, updateDocteur, searchDocteur, searchDocteurByNameOrSpeciality } from "../controller/docteurController.js";
 
-export default router;
+const router2 = express.Router();
+
+router2.get("/docteurController", docteurList);  // Get all doctors
+router2.post("/docteurController", createDocteur);  // Create a new doctor
+router2.delete("/docteurController/:id", deleteDocteur);  // Delete a doctor by ID
+router2.put("/docteurController/:id", updateDocteur);  // Update a doctor by ID
+router2.get("/docteurController/:id", searchDocteur);  // Search for a doctor by ID
+router2.get("/docteurController/search", searchDocteurByNameOrSpeciality);  // Search doctors by name or specialty
+
+export default router2;
+
+
+

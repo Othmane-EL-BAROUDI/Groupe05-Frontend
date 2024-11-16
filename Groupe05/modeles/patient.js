@@ -3,9 +3,11 @@ import database from "../configuration/connexion.js"
 
 import { DataTypes } from "sequelize"
 
+
+
 // Modele pour la table patient
 const patient = database.define('patient', {
-    id_Patient : { type: DataTypes.UUID, defaultValue:uuidv4, primaryKey: true, allowNull:false},
+    id_Patient : { type: DataTypes.UUID, primaryKey: true, allowNull:false},
     nom_P: {type:DataTypes.STRING, allowNull:false, unique: false},
     prenom_P: {type:DataTypes.STRING, allowNull:false, unique: false},
     date_Nais_P: { type: DataTypes.DATEONLY,  // Utilisation de DATEONLY pour une date sans l'heure
@@ -36,3 +38,4 @@ const patient = database.define('patient', {
     
 })
 
+export default patient

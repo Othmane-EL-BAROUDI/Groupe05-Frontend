@@ -3,17 +3,17 @@ import database from "../configuration/connexion.js"
 
 import { DataTypes } from "sequelize"
 
-import patient from "/patient.js"
-import administrateurC from "/administrateurC.js"
-import salleConsultation from "/salleConsultation.js"
-import docteur from "/docteur.js"
-//import rendezVous from "/rendezVous.js"
+import patient from "./patient.js"
+import administrateurC from "./administrateurC.js"
+import salleConsultation from "./salleConsultation.js"
+import docteur from "./docteur.js"
+
 
 
 //import{ docteur, patient, administrateurC, salleConsultation } from "./modeles"
 
 
-const rendezVous = connexion.define('rendezVous', {
+const rendezVous = database.define('rendezVous', {
     id_Rendez: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -71,3 +71,5 @@ const rendezVous = connexion.define('rendezVous', {
       },
     },
   })
+
+  export default rendezVous

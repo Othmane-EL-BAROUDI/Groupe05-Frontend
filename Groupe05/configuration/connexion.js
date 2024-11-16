@@ -11,13 +11,13 @@ import dotenv from 'dotenv'
 const ENV = dotenv.config().parsed
 
 //Création d'une nouvelle instance de Sequelize pour se connecter à la base de données
-const connexion = new Sequelize (ENV.DB_NAME, ENV.DB_USER, ENV.DB_PASSWORD, {
+const database = new Sequelize (ENV.DB_NAME, ENV.DB_USER, ENV.DB_PASSWORD, {
     host: ENV.DB_HOST,
     dialect: ENV.DB_DIALECT,
-    // port:ENV.DB_PORT
+   // port:ENV.DB_PORT
 })
 
 
 /* L'instance de `connexion` est exportée afin qu'elle puisse être utilisée ailleurs dans l'application.
  Cela permet d'établir une connexion à la base de données depuis d'autres fichiers ou modules.*/
-export default connexion
+export default database

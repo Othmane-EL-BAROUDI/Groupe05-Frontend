@@ -1,11 +1,12 @@
 //Importer la base de donnee pour creer les modeles (modeles/administrateurC.js)
 import database from "../configuration/connexion.js"
 
-import { DataTypes } from "sequelize"
+import { DataTypes, UUIDV4 } from "sequelize"
 
 // Modele pour la table administrateurC
 const administrateurC = database.define('administrateurC', {
-    id_Admin : { type: DataTypes.UUID, defaultValue:uuidv4, primaryKey: true, allowNull:false},
+    id_Admin : { type: DataTypes.UUID, 
+        primaryKey: true, allowNull:false},
     nom_A: {type:DataTypes.STRING, allowNull:false, unique: false},
     prenom_A: {type:DataTypes.STRING, allowNull:false, unique: false},
     num_Tel_A: {type:DataTypes.STRING, allowNull: false, unique:true, validate:{
@@ -24,3 +25,5 @@ const administrateurC = database.define('administrateurC', {
     fonction_A: {type:DataTypes.STRING, allowNull:false, unique: false}
     
 })
+
+export default administrateurC

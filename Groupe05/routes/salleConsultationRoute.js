@@ -1,5 +1,12 @@
+//import{Router} from "express"
 import express from "express";
-import { salleConsultationList, createSalleConsultation, deleteSalleConsultation, updateSalleConsultation, searchSalleConsultation, searchSalleConsultationByNumberOrFloor } from "./controllers/salleConsultationController.js";
+import { salleConsultationList, 
+    createSalleConsultation, 
+    deleteSalleConsultation, 
+    updateSalleConsultation, 
+    searchSalleConsultation, 
+    searchSalleConsultationByNumberOrFloor
+ } from "../controller/salleConsultationController.js";
 
 const router = express.Router();
 

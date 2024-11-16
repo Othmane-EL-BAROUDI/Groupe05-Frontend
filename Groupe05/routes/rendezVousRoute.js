@@ -1,11 +1,15 @@
-import express from "express";
+//import{Router} from "express"
+
+import express from "express"
+
+
 import { 
     rendezVousList, 
     createRendezVous, 
     deleteRendezVous, 
     updateRendezVous, 
     searchRendezVous 
-} from "./controllers/rendezVousController.js";
+} from "../controller/rendezVousController.js";
 
 const router = express.Router();
 

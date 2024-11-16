@@ -10,7 +10,7 @@ import serviceMedical from "./serviceMedical.js"
 
 // Modele pour la table serviceMedical
 const servMedDocteur = database.define('servMedDocteur', {
-    id_SerMD : { type: DataTypes.UUID, defaultValue:uuidv4, primaryKey: true, allowNull:false},
+    id_SerMD : { type: DataTypes.UUID,  primaryKey: true, allowNull:false},
     id_Docteur: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -28,3 +28,5 @@ const servMedDocteur = database.define('servMedDocteur', {
         },
       }   
 })
+
+export default servMedDocteur

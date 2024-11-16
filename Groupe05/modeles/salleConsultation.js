@@ -5,7 +5,7 @@ import { DataTypes } from "sequelize"
 
 // Modele pour la table salleConsultation
 const salleConsultation = database.define('salleConsultation', {
-    id_Salle : { type: DataTypes.UUID, defaultValue:uuidv4, primaryKey: true, allowNull:false},
+    id_Salle : { type: DataTypes.UUID, primaryKey: true, allowNull:false},
     numero_S: {type: DataTypes.STRING, allowNull: false, unique: true,  
             validate: {
             notEmpty: true
@@ -22,3 +22,5 @@ const salleConsultation = database.define('salleConsultation', {
     dispon_S: {type:DataTypes.STRING, allowNull:false, unique: false}
     
 })
+
+export default salleConsultation
