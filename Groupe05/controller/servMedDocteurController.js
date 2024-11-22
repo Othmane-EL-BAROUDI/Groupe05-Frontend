@@ -1,3 +1,6 @@
+/*
+
+
 import servMedDocteur from "../modeles/servMedDocteur.js"
 
 
@@ -91,3 +94,4 @@ export const searchServMedDocteur = async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 }
+*/

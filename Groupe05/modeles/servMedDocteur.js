@@ -1,18 +1,20 @@
+
+/*
 //Importer la base de donnee pour creer les modeles (modeles/servMedDocteur.js)
 import database from "../configuration/connexion.js"
 
 
 
-import { DataTypes } from "sequelize"
+import { DataTypes, UUIDV4 } from "sequelize"
 
 import docteur from "./docteur.js"
 import serviceMedical from "./serviceMedical.js"
 
 // Modele pour la table serviceMedical
 const servMedDocteur = database.define('servMedDocteur', {
-    id_SerMD : { type: DataTypes.UUID,  primaryKey: true, allowNull:false},
+    id_SerMD : { type: DataTypes.CHAR(36), defaultValue: DataTypes.UUIDV4, primaryKey: true, allowNull:false},
     id_Docteur: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.CHAR(36),
         allowNull: false,
         references: {
           model: docteur,  // Référence à la table docteur
@@ -20,7 +22,7 @@ const servMedDocteur = database.define('servMedDocteur', {
         },
       },
       id_Service: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.CHAR(36),
         allowNull: false,
         references: {
           model: serviceMedical, // Référence à la table service medicale
@@ -30,3 +32,5 @@ const servMedDocteur = database.define('servMedDocteur', {
 })
 
 export default servMedDocteur
+
+*/

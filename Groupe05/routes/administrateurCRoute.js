@@ -14,13 +14,13 @@ import {
 
 
 
-const router1 = express.Router();
+const router = express.Router();
 
 // Routes for Administrateurs
-router1.get("/administrateurC", administrateurList);  // Liste des administrateurs
-router1.post("/administrateurC", addAdmin);  // Créer un administrateur
-router1.delete("/administrateurC", deleteAdmin);  // Supprimer un administrateur
-router1.put("/administrateurC", updateAdmin);  // Modifier un administrateur
-router1.get("/administrateursC", searchAdministrateur);  // Recherche d'un administrateur
+router.get("/", administrateurList);  // Liste des administrateurs
+router.post("/add", addAdmin);  // Créer un administrateur
+router.delete("/adminDelete", deleteAdmin);  // Supprimer un administrateur
+router.put("/adminUpdate", updateAdmin);  // Modifier un administrateur
+router.get("/:idSearch", searchAdministrateur);  // Recherche d'un administrateur
 
-export default router1;
+export default router;

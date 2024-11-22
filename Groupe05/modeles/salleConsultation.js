@@ -1,11 +1,11 @@
 //Importer la base de donnee pour creer les modeles (modeles/salleConsultation.js)
 import database from "../configuration/connexion.js"
 
-import { DataTypes } from "sequelize"
+import { DataTypes} from "sequelize"
 
 // Modele pour la table salleConsultation
 const salleConsultation = database.define('salleConsultation', {
-    id_Salle : { type: DataTypes.UUID, primaryKey: true, allowNull:false},
+   // id_Salle : { type: DataTypes.CHAR(36), defaultValue: DataTypes.UUIDV4, primaryKey: true, allowNull:false},
     numero_S: {type: DataTypes.STRING, allowNull: false, unique: true,  
             validate: {
             notEmpty: true

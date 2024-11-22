@@ -14,6 +14,9 @@ export const administrateurList = async (req, res) => {
 }
 
 // 2- Création d'un administrateur
+
+
+
 export const addAdmin = async (req, res) => {  
     const infoAdmin = req.body
     try {

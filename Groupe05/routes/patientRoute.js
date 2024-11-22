@@ -13,7 +13,7 @@ import {
 
 const router = express.Router();
 
-router.get("/patient", patientList);  // Get all doctors
+router.get("/", patientList);  // Get all doctors
 router.post("/patient", createPatient);  // Create a new doctor
 router.delete("/patient/:id", deletePatient);  // Delete a doctor by ID
 router.put("/patient/:id", updatePatient);  // Update a doctor by ID

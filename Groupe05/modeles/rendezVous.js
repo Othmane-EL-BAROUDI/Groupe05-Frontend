@@ -14,11 +14,12 @@ import docteur from "./docteur.js"
 
 
 const rendezVous = database.define('rendezVous', {
-    id_Rendez: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
+   /* id_Rendez: {
+      type: DataTypes.CHAR(36),
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+        allowNull: false
+    },*/
     date: {
       type: DataTypes.DATEONLY,  // Pour une date sans l'heure
       allowNull: false,
@@ -35,11 +36,13 @@ const rendezVous = database.define('rendezVous', {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: 'en attente', // Par défaut, le statut est 'en attente'
-    },
+    }
+    /*
+    ,
     
     // Clés étrangères pour relier le rendez-vous aux entités concernées
     id_Docteur: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
       references: {
         model: docteur,  // Référence à la table Doctor
@@ -47,7 +50,7 @@ const rendezVous = database.define('rendezVous', {
       },
     },
     id_Patient: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
       references: {
         model: patient,  // Référence à la table Patient
@@ -55,7 +58,7 @@ const rendezVous = database.define('rendezVous', {
       },
     },
     id_Admin: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
       references: {
         model: administrateurC,  // Référence à la table Admin
@@ -69,7 +72,7 @@ const rendezVous = database.define('rendezVous', {
         model: salleConsultation,  // Référence à la table Room (Salle)
         key: 'id_Salle',
       },
-    },
+    },*/
   })
 
   export default rendezVous
