@@ -1,5 +1,7 @@
 import express from 'express';
 
+import serviceMedicalRules from '../validations/serviceValidation.js';
+
 import {
     getAllServices,
     createServiceMedical,
@@ -11,16 +13,16 @@ import {
 const router = express.Router();
 
 // 1. Route pour lister tous les services médicaux
-router.get('/servAll', getAllServices);
+router.get('/', getAllServices);
 
 // 2. Route pour créer un nouveau service médical
-router.post('/servCreate', createServiceMedical);
+router.post('/', serviceMedicalRules, createServiceMedical);
 
 // 3. Route pour supprimer un service médical par son ID
-router.delete('/servDelete', deleteServiceMedical);
+router.delete('/:id', deleteServiceMedical);
 
 // 4. Route pour modifier un service médical par son ID
-router.put('/servUpdate', updateServiceMedical);
+router.put('/:id', updateServiceMedical);
 
 // 5. Route pour rechercher des services médicaux par nom
 router.get('/servSearch', searchServices);

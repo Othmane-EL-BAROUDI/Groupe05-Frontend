@@ -37,42 +37,7 @@ const rendezVous = database.define('rendezVous', {
       allowNull: false,
       defaultValue: 'en attente', // Par défaut, le statut est 'en attente'
     }
-    /*
-    ,
     
-    // Clés étrangères pour relier le rendez-vous aux entités concernées
-    id_Docteur: {
-      type: DataTypes.CHAR(36),
-      allowNull: false,
-      references: {
-        model: docteur,  // Référence à la table Doctor
-        key: 'id_Docteur',
-      },
-    },
-    id_Patient: {
-      type: DataTypes.CHAR(36),
-      allowNull: false,
-      references: {
-        model: patient,  // Référence à la table Patient
-        key: 'id_Patient',
-      },
-    },
-    id_Admin: {
-      type: DataTypes.CHAR(36),
-      allowNull: false,
-      references: {
-        model: administrateurC,  // Référence à la table Admin
-        key: 'id_Admin',
-      },
-    },
-    id_Salle: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: salleConsultation,  // Référence à la table Room (Salle)
-        key: 'id_Salle',
-      },
-    },*/
   })
 
   export default rendezVous

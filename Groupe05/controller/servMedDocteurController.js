@@ -1,4 +1,4 @@
-/*
+
 
 
 import servMedDocteur from "../modeles/servMedDocteur.js"
@@ -19,6 +19,7 @@ export const servMedDocteurList = async (req, res) => {
     }
 }
 
+/*
 // 2 - Création d'une nouvelle relation service médical pour un docteur
 export const createServMedDocteur = async (req, res) => {
     try {
@@ -33,7 +34,7 @@ export const createServMedDocteur = async (req, res) => {
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
-}
+}*/
 
 // 3- Suppression d'une relation service médical pour un docteur
 export const deleteServMedDocteur = async (req, res) => {
@@ -94,4 +95,3 @@ export const searchServMedDocteur = async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 }
-*/

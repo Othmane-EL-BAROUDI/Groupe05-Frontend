@@ -26,33 +26,29 @@ const patient = database.define('patient', {
     },
     adresse_P: {type:DataTypes.STRING, allowNull:false},
     num_Tel_P: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-          isValidPhoneNumber(value) {
-              // Validation personnalisée pour le numéro de téléphone
-              const regex = /^(?:\(\d{3}\)\s?|\d{3}[-\s]?)\d{3}[-\s]?\d{4}$/;
-              if (!regex.test(value)) {
-                  throw new Error("Le numéro de téléphone n'est pas valide, format accepté : (000) 000-0000 ou 000-000-0000");
-              }
-          }
-      }
-  },
-    couriel_P: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-          isValidEmail(value) {
-              // Validation personnalisée pour l'email
-              const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-              if (!regex.test(value)) {
-                  throw new Error("L'adresse email n'est pas valide. Format: exemple@exemple.com");
-              }
-          }
-      }
-  },
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            isValidPhoneNumber(value) {
+                const regex = /^(?:\(\d{3}\)\s?|\d{3}[-\s]?)\d{3}[-\s]?\d{4}$/;
+                if (!regex.test(value)) {
+                    throw new Error("Le numéro de téléphone n'est pas valide, format accepté : (000) 000-0000 ou 000-000-0000");
+                }
+            }
+        }
+    },
+  couriel_P: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+        isValidEmail(value) {
+            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!regex.test(value)) {
+                throw new Error("L'adresse email n'est pas valide. Format: exemple@exemple.com");
+            }
+        }
+    }
+},
     historique_P: {type:DataTypes.STRING, allowNull:false, unique: false}
     
 })

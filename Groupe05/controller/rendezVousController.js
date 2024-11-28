@@ -1,4 +1,9 @@
 import rendezVous from "../modeles/rendezVous.js"
+import docteur from "../modeles/docteur.js";
+import patient from "../modeles/patient.js";
+import administrateurC from "../modeles/administrateurC.js";
+import salleConsultation from "../modeles/salleConsultation.js";
+
 
 // Controller - Liste des rendez-vous
 export const rendezVousList = async (req, res) => {

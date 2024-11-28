@@ -2,14 +2,15 @@
 
 
 
-import docteur from "../modeles/docteur.js"
+import docteur from "../modeles/docteur.js";
+
 
 
 // 1- Liste des docteurs
 export const docteurList = async (req, res) => {
     try {
-        const docteurs = await docteur.findAll();
-        res.status(200).json({ data: docteurs });
+        const docte = await docteur.findAll();
+        res.status(200).json({ data: docte });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
@@ -17,8 +18,17 @@ export const docteurList = async (req, res) => {
 
 // 2 - Création d'un docteur
 export const createDocteur = async (req, res) => {
+
+    //Les informations de la personne a ajouter depuis le formulaire/Postman
+
+    //Construire le chemin de l'image ou du fichier
+    const picture = req.file
+    //console.log('path', req.body)
+    const imagePath = picture?.path?.split('\\').join('/')
+    const fullPath = picture ? req.protocol + '://' + req.get('host') + '/' + imagePath : null
+
     try {
-        const { nom_D, prenom_D, specialite_D, num_Tel_D, couriel_D, disponibilite_D } = req.body;
+        const { nom_D, prenom_D, specialite_D, num_Tel_D, couriel_D, disponibilite_D, photo } = req.body;
 
         const newDocteur = await docteur.create({
             nom_D,
@@ -26,7 +36,8 @@ export const createDocteur = async (req, res) => {
             specialite_D,
             num_Tel_D,
             couriel_D,
-            disponibilite_D
+            disponibilite_D,
+            photo
         });
 
         res.status(201).json({ message: "Docteur créé avec succès", data: newDocteur });
@@ -40,7 +51,7 @@ export const createDocteur = async (req, res) => {
 export const updateDocteur = async (req, res) => {
     try {
         const { id } = req.params;
-        const { nom_D, prenom_D, specialite_D, num_Tel_D, couriel_D, disponibilite_D } = req.body;
+        const { nom_D, prenom_D, specialite_D, num_Tel_D, couriel_D, disponibilite_D, photo } = req.body;
 
         const docteurToUpdate = await docteur.findByPk(id);
         if (!docteurToUpdate) {
@@ -53,7 +64,8 @@ export const updateDocteur = async (req, res) => {
             specialite_D,
             num_Tel_D,
             couriel_D,
-            disponibilite_D
+            disponibilite_D,
+            photo
         });
 
         res.status(200).json({ message: "Docteur mis à jour avec succès", data: updatedDocteur });
@@ -83,14 +95,14 @@ export const deleteDocteur = async (req, res) => {
 // 5 - Recherche d'un docteur
 export const searchDocteur = async (req, res) => {
     try {
-        const { id } = req.params;
+        const {id } = req.params;
 
-        const docteur = await docteur.findByPk(id); // Find by primary key
-        if (!docteur) {
+        const doct = await docteur.findByPk(id); // Find by primary key
+        if (!doct) {
             return res.status(404).json({ message: "Docteur non trouvé" });
         }
 
-        res.status(200).json({ data: docteur });
+        res.status(200).json({ data: doct });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }

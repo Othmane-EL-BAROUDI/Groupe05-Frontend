@@ -1,6 +1,7 @@
 
 import patient from "../modeles/patient.js"
 
+import patientRules from "../validations/patientValidation.js";
 
 // 1 - Liste des patients
 export const patientList = async (req, res) => {
@@ -38,12 +39,12 @@ export const deletePatient = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const patientToDelete = await patient.findByPk(id);
-        if (!patientToDelete) {
+        const patientToDe = await patient.findByPk(id);
+        if (!patientToDe) {
             return res.status(404).json({ message: "Patient non trouvé" });
         }
 
-        await patientToDelete.destroy();
+        await patientToDe.destroy();
         res.status(200).json({ message: "Patient supprimé avec succès" });
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -56,12 +57,12 @@ export const updatePatient = async (req, res) => {
         const { id } = req.params;
         const { nom_P, prenom_P, date_Nais_P, adresse_P, num_Tel_P, couriel_P, historique_P } = req.body;
 
-        const patientToUpdate = await patient.findByPk(id);
-        if (!patientToUpdate) {
+        const patientToUpdat = await patient.findByPk(id);
+        if (!patientToUpdat) {
             return res.status(404).json({ message: "Patient non trouvé" });
         }
 
-        const updatedPatient = await patientToUpdate.update({
+        const updatedP = await patientToUpdat.update({
             nom_P,
             prenom_P,
             date_Nais_P,
@@ -71,7 +72,7 @@ export const updatePatient = async (req, res) => {
             historique_P
         });
 
-        res.status(200).json({ message: "Patient mis à jour avec succès", data: updatedPatient });
+        res.status(200).json({ message: "Patient mis à jour avec succès", data: updatedP });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }

@@ -5,7 +5,9 @@ import salleConsultation from "./salleConsultation.js"
 import docteur from "./docteur.js"
 import rendezVous from "./rendezVous.js"
 //import servMedDocteur from "/servMedDocteur.js"
-import serviceMedical from "./serviceMedical"
+import serviceMedical from "./serviceMedical.js"
+import database from "../configuration/connexion.js"
+import servMedDocteur from "./servMedDocteur.js"
 
 
 // Relations pour la table rendez vous
@@ -28,13 +30,9 @@ rendezVous.belongsTo(serviceMedical)
 
 
 
-
 // Associations entre docteur, serviceMedical
-docteur.belongsToMany(serviceMedical, { through: 'DocteurServiceMedical' });
-serviceMedical.belongsToMany(docteur, { through: 'DocteurServiceMedical' });
-
-
-
+docteur.belongsToMany(serviceMedical, { through: 'servMedDocteur' });
+serviceMedical.belongsToMany(docteur, { through: 'servMedDocteur' });
 
 
 
@@ -46,5 +44,6 @@ export default {
     salleConsultation,
     docteur,
     rendezVous,
-    serviceMedical
+    serviceMedical,
+    servMedDocteur
   }

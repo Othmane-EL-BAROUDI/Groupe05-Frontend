@@ -1,5 +1,5 @@
 
-/*
+
 //Importer la base de donnee pour creer les modeles (modeles/servMedDocteur.js)
 import database from "../configuration/connexion.js"
 
@@ -12,7 +12,7 @@ import serviceMedical from "./serviceMedical.js"
 
 // Modele pour la table serviceMedical
 const servMedDocteur = database.define('servMedDocteur', {
-    id_SerMD : { type: DataTypes.CHAR(36), defaultValue: DataTypes.UUIDV4, primaryKey: true, allowNull:false},
+   // id_SerMD : { type: DataTypes.CHAR(36), defaultValue: DataTypes.UUIDV4, primaryKey: true, allowNull:false},
     id_Docteur: {
         type: DataTypes.CHAR(36),
         allowNull: false,
@@ -29,8 +29,20 @@ const servMedDocteur = database.define('servMedDocteur', {
           key: 'id_Service',      // Clé primaire de la table service medicale
         },
       }   
+},
+{
+  timestamps: true, // Ajoute createdAt et updatedAt
+  primaryKey: ['id_Docteur', 'id_Service'], // Définir une clé primaire composite
 })
 
-export default servMedDocteur
 
-*/
+
+
+/*
+
+const servMedDocteur = database.define('servMedDocteur', {
+  // Vous pouvez ajouter des attributs supplémentaires si nécessaire
+}, { timestamps: false });*/
+
+
+export default servMedDocteur
