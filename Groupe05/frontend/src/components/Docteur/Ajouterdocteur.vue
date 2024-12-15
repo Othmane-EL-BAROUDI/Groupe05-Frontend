@@ -58,7 +58,7 @@
           class="form-control"
           id="courriel_docteur"
           v-model="state.courriel_docteur"
-          placeholder="Entrez le courriel"
+          placeholder="Entrez le  courriel"
         />
         <span class="text-danger" v-if="v$.courriel_docteur.$error">
           {{ v$.courriel_docteur.$errors[0].$message }}
